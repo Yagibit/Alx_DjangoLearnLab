@@ -135,3 +135,25 @@ SESSION_COOKIE_SECURE = True
 # Also ensure DEBUG is False for a production-like check
 DEBUG = False
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+# LibraryProject/LibraryProject/settings.py
+
+# --- HTTPS and SSL Settings ---
+# Redirect all non-HTTPS requests to HTTPS
+SECURE_SSL_REDIRECT = True
+
+# HTTP Strict Transport Security (HSTS) settings
+# 31536000 seconds is exactly one year
+SECURE_HSTS_SECONDS = 31536000  
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# --- Cookie Security ---
+# Ensure cookies are only sent over HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# --- Secure Headers (Ensuring previous task requirements are still met) ---
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
