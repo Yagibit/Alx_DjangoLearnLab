@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import permission_required
 from django.shortcuts import render, get_object_or_404
+from .models import Book
 
 @permission_required('bookshelf.can_view', raise_exception=True)
-def article_list(request):
-    articles = Article.objects.all()
-    return render(request, 'bookshelf/article_list.html', {'articles': articles})
+def book_list(request):
+    books = Book.objects.all()
+    return render(request, 'bookshelf/book_list.html', {'books': books})
 
 @permission_required('bookshelf.can_edit', raise_exception=True)
-def edit_article(request, pk):
-    article = get_object_or_404(Article, pk=pk)
-    # logic for editing...
-    return render(request, 'bookshelf/edit_article.html', {'article': article})
+def edit_book(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    # ... logic for editing ...
+    return render(request, 'bookshelf/edit_book.html', {'book': book})
